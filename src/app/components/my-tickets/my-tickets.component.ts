@@ -47,7 +47,7 @@ function createNewTicket (id: number): IticketList {
   var ticket: IticketList = null;
   ticket={
     id: id.toString(),
-    title:'ticket',
+    title:'title',
     created_on:'07/07/2007',
     status:'status',
     assignee:'assignee'

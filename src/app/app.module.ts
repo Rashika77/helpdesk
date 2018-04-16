@@ -30,7 +30,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
+import {MatSortModule} from '@angular/material/sort';
 
 
 const appRoutes: Routes = [
@@ -89,7 +89,8 @@ export function getAuthServiceConfigs() {
     FormsModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [{
     provide: AuthServiceConfig,
