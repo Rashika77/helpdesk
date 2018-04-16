@@ -1,0 +1,15 @@
+
+/* 
+  .container {
+   width:70vw;
+
+  } */
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .container > * {
+    width: 90%;
+  }
+  

@@ -26,6 +26,12 @@ import {MatSelectModule} from '@angular/material/select';
 import { MatInputModule } from '@angular/material';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {GoogleAuthGuardGuard} from './google-auth-guard.guard'
+import {MatIconModule} from '@angular/material/icon';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
+
 
 const appRoutes: Routes = [
   {
@@ -78,7 +84,12 @@ export function getAuthServiceConfigs() {
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [{
     provide: AuthServiceConfig,

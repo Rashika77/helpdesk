@@ -4,7 +4,7 @@
       <div class="box-header with-border">
         <h3 class="box-title">New Ticket</h3>
         <div class="box-tools pull-right">
-          <button type="button" class="btn btn-box-tool">
+          <button type="button" class="btn btn-box-tool"  (click)="clearInputs()">
             <i class="fa fa-times"></i>
           </button>
         </div>
@@ -17,33 +17,36 @@
               <mat-grid-list cols="2" rowHeight="100px">
                 <mat-grid-tile colspan="2" rowspan="1">
                   <mat-form-field>
-                    <mat-select placeholder="Department">
+                    <mat-select placeholder="Department" [(ngModel)]="ticket.department">
                       <mat-option value="option">BFSI</mat-option>
                     </mat-select>
                   </mat-form-field>
                 </mat-grid-tile>
                 <mat-grid-tile colspan="1" rowspan="1">
                   <mat-form-field>
-                    <input matInput placeholder="Behalf of User" value="">
+                    <input matInput placeholder="Behalf of User" disabled [(ngModel)]="ticket.requesterUser">
                   </mat-form-field>
                 </mat-grid-tile>
                 <mat-grid-tile colspan="1" rowspan="1">
                   <mat-form-field>
-                    <input matInput placeholder="Contact No" value="">
+                    <input matInput placeholder="Contact No" value=""  [(ngModel)]="ticket.contact">
                   </mat-form-field>
                 </mat-grid-tile>
-              <mat-grid-tile colspan="2" rowspan="1">
-                <mat-form-field>
-                  <input matInput placeholder="Title" value="">
-                </mat-form-field>
-              </mat-grid-tile>
-              <mat-grid-tile  colspan="2" rowspan="4">
-                <mat-form-field>
-                  <textarea matInput placeholder="Description"></textarea>
-                  <mat-hint align="end">Minimum 10 characters</mat-hint>
-                </mat-form-field>
-              </mat-grid-tile>
+                <mat-grid-tile colspan="2" rowspan="1">
+                  <mat-form-field>
+                    <input matInput placeholder="Title" value=""  [(ngModel)]="ticket.title">
+                  </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="2" rowspan="1">
+                  <mat-form-field>
+                    <textarea matInput placeholder="Description"  [(ngModel)]="ticket.description"></textarea>
+                    <mat-hint align="end">Minimum 10 characters</mat-hint>
+                  </mat-form-field>
+                </mat-grid-tile>
               </mat-grid-list>
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
             </div>
           </div>
         </div>
