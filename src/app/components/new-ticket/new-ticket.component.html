@@ -1,10 +1,57 @@
-<form class="example-form">
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Favorite food" value="Sushi">
-    </mat-form-field>
-  
-    <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Leave a comment"></textarea>
-    </mat-form-field>
-  </form>
-  
+<div class="row">
+  <div class="col-md-12">
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">New Ticket</h3>
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="container">
+              <mat-grid-list cols="2" rowHeight="100px">
+                <mat-grid-tile colspan="2">
+                  <mat-form-field>
+                    <mat-select placeholder="Department">
+                      <mat-option value="option">BFSI</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="1">
+                  <mat-form-field>
+                    <input matInput placeholder="Behalf of User" value="">
+                  </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="1">
+                  <mat-form-field>
+                    <input matInput placeholder="Contact No" value="">
+                  </mat-form-field>
+                </mat-grid-tile>
+              <mat-grid-tile colspan="2">
+                <mat-form-field>
+                  <input matInput placeholder="Title" value="">
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile  colspan="2" rowspan="2">
+                <mat-form-field>
+                  <textarea matInput placeholder="Description"></textarea>
+                  <mat-hint align="end">Minimum 10 characters</mat-hint>
+                </mat-form-field>
+              </mat-grid-tile>
+              </mat-grid-list>
+            </div>
+          </div>
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- ./box-body -->
+    </div>
+    <!-- /.box -->
+  </div>
+  <!-- /.col -->
+</div>

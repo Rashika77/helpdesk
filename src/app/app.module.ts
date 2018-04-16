@@ -24,6 +24,9 @@ import { AssignedTicketsComponent } from './components/assigned-tickets/assigned
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { MatInputModule } from '@angular/material';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {GoogleAuthGuardGuard} from './google-auth-guard.guard'
+
 const appRoutes: Routes = [
   {
     path: '',
@@ -32,6 +35,7 @@ const appRoutes: Routes = [
   },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent,
+  canActivateChild : [GoogleAuthGuardGuard],
   children: [
     {path: '', redirectTo: 'newticket',pathMatch: 'full'},  
     {path: 'newticket', component: NewTicketComponent, data:{"title":"New Ticket"}},
@@ -73,12 +77,13 @@ export function getAuthServiceConfigs() {
     SocialLoginModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    MatGridListModule
   ],
   providers: [{
     provide: AuthServiceConfig,
     useFactory: getAuthServiceConfigs,
-  },CookieService,MessageService],
+  },CookieService,MessageService,GoogleAuthGuardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
