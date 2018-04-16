@@ -15,6 +15,11 @@ export class LoginComponent implements OnInit {
   constructor(private router:Router, private route:ActivatedRoute, private socialAuthService: AuthService,private cookieService: CookieService  ) { }
 
   ngOnInit() {
+    var userData =  this.cookieService.get('userData');
+    if(userData){
+      console.log('redirecting home due to access Rights..');    
+      this.router.navigate(['/home'], {relativeTo:this.route});
+    }
   }
 
   public socialSignIn(socialPlatform : string) {
@@ -32,18 +37,4 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-
-  onSignIn(googleUser) {
-    debugger;
-    this.router.navigate(['/home'], {relativeTo:this.route});
-    var profile = googleUser.getBasicProfile();
-    var imagurl = profile.getImageUrl();
-    var name = profile.getName();
-    var email = profile.getEmail();
-    var id = profile.getId(); 
-    var id_token = googleUser.getAuthResponse().id_token;
-    sessionStorage.setItem('aeh_usertoken',JSON.stringify(id_token));
-
-  }
-
 }
