@@ -16,6 +16,7 @@ export class MyTicketsComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  public showSearch: boolean = false;
   constructor(private router: Router, private route: ActivatedRoute, private messageService: MessageService) {
     const tickets: IticketList[] = [];
     for (let i = 1; i <= 100; i++) { tickets.push(createNewTicket(i)); }
@@ -39,7 +40,14 @@ export class MyTicketsComponent implements OnInit {
     });
   }
   refresh(){
+  }
 
+  print(){
+
+  }
+
+  search(){
+    this.showSearch = !this.showSearch;
   }
 }
 
@@ -54,4 +62,6 @@ function createNewTicket (id: number): IticketList {
   };
   return ticket;
 }
+
+
 

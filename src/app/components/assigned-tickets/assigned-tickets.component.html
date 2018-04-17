@@ -1,72 +1,80 @@
 <div class="row">
-    <div class="col-md-12">
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">Assigned Tickets</h3>
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" (click)="refresh()">
-              <i class="fa fa-refresh"></i>
-            </button>
-          </div>
+  <div class="col-md-12">
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Assigned Tickets</h3>
+        <div class="box-tools pull-right">
+          <button matTooltip="Search" *ngIf="!showSearch" type="button" class="btn btn-box-tool" (click)="showSearch = !showSearch">
+            <i class="fa fa-search"></i>
+          </button>
+          <mat-form-field *ngIf="showSearch">
+            <input matInput (keyup)="applyFilter($event.target.value)" type="text" matInput placeholder="Filter">
+          </mat-form-field>
+          <button *ngIf="showSearch" matTooltip="Close" type="button" class="btn btn-box-tool" (click)="showSearch = !showSearch">
+            <i class="fa fa-close"></i>
+          </button>
+          <button matTooltip="Print" type="button" class="btn btn-box-tool" (click)="print()">
+            <i class="fa fa-print"></i>
+          </button>
+          <button matTooltip="Refresh" type="button" class="btn btn-box-tool" (click)="refresh()">
+            <i class="fa fa-refresh"></i>
+          </button>
         </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-          <div class="row">
-            <div class="col-md-8">
-              <div class="container">
-                <div class="example-header">
-                  <mat-form-field>
-                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-                  </mat-form-field>
-                </div>
-  
-                <div class="example-container mat-elevation-z8">
-  
-                  <mat-table [dataSource]="dataSource" matSort>
-  
-                    <!-- ID Column -->
-                    <ng-container matColumnDef="id">
-                      <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
-                      <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
-                    </ng-container>
-  
-                    <!-- Progress Column -->
-                    <ng-container matColumnDef="title">
-                      <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
-                      <mat-cell *matCellDef="let row"> {{row.title}} </mat-cell>
-                    </ng-container>
-  
-                    <!-- Name Column -->
-                    <ng-container matColumnDef="created_on">
-                      <mat-header-cell *matHeaderCellDef mat-sort-header> Created On </mat-header-cell>
-                      <mat-cell *matCellDef="let row"> {{row.created_on}} </mat-cell>
-                    </ng-container>
-  
-                    <!-- Color Column -->
-                    <ng-container matColumnDef="status">
-                      <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
-                      <mat-cell *matCellDef="let row"> {{row.status}} </mat-cell>
-                    </ng-container>
-  
-                    <ng-container matColumnDef="assignee">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> Assignee </mat-header-cell>
-                        <mat-cell *matCellDef="let row"> {{row.status}} </mat-cell>
-                      </ng-container>
-  
-                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                    <mat-row *matRowDef="let row; columns: displayedColumns;">
-                    </mat-row>
-                  </mat-table>
-                  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
-                </div>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="container">
+              <div class="example-header">
+              </div>
+              <div class="example-container mat-elevation-z8">
+
+                <mat-table [dataSource]="dataSource" matSort>
+
+                  <!-- ID Column -->
+                  <ng-container matColumnDef="id">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+                  </ng-container>
+
+                  <!-- Progress Column -->
+                  <ng-container matColumnDef="title">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.title}} </mat-cell>
+                  </ng-container>
+
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="created_on">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Created On </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.created_on}} </mat-cell>
+                  </ng-container>
+
+                  <!-- Color Column -->
+                  <ng-container matColumnDef="status">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.status}} </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="assignee">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Assignee </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.status}} </mat-cell>
+                  </ng-container>
+
+                  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: displayedColumns;">
+                  </mat-row>
+                </mat-table>
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
               </div>
             </div>
           </div>
-          <!-- /.row -->
         </div>
-        <!-- ./box-body -->
+        <!-- /.row -->
       </div>
-      <!-- /.box -->
+      <!-- ./box-body -->
     </div>
-    <!-- /.col -->
+    <!-- /.box -->
   </div>
+  <!-- /.col -->
+</div>

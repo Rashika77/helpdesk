@@ -1,9 +1,14 @@
-.container {
-  display: flex;
-  flex-direction: column;
+.box{
+  width: 100%;
 }
 
-.container > * {
+.col-md-8{
+  width: 100%;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
   width: 90%;
 }
 
@@ -15,4 +20,12 @@
 
 textarea{
   height: 50px;
+}
+
+.box{
+  margin: 0 auto;
+}
+
+.box-footer{
+  width: 100%
 }

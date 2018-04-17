@@ -1,0 +1,16 @@
+.chip-list {
+    width: 100%;
+  }
+
+mat-chip {
+    width: 9%;
+    text-align: right;
+}
+
+mat-icon{
+    margin-left: auto;
+}
+
+.demo-chip-list{
+  width: 100%;
+}

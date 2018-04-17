@@ -4,7 +4,19 @@
       <div class="box-header with-border">
         <h3 class="box-title">My Tickets</h3>
         <div class="box-tools pull-right">
-          <button type="button" class="btn btn-box-tool" (click)="refresh()">
+          <button matTooltip="Search" *ngIf="!showSearch" type="button" class="btn btn-box-tool" (click)="showSearch = !showSearch">
+            <i class="fa fa-search"></i>
+          </button>
+          <mat-form-field *ngIf="showSearch">
+            <input  matInput (keyup)="applyFilter($event.target.value)"  type="text" matInput placeholder="Filter">
+          </mat-form-field>          
+          <button *ngIf="showSearch" matTooltip="Close" type="button" class="btn btn-box-tool" (click)="showSearch = !showSearch">
+            <i class="fa fa-close"></i>
+          </button>
+          <button matTooltip="Print" type="button" class="btn btn-box-tool" (click)="print()">
+            <i class="fa fa-print"></i>
+          </button>
+          <button matTooltip="Refresh" type="button" class="btn btn-box-tool" (click)="refresh()">
             <i class="fa fa-refresh"></i>
           </button>
         </div>
@@ -15,9 +27,7 @@
           <div class="col-md-8">
             <div class="container">
               <div class="example-header">
-                <mat-form-field>
-                  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-                </mat-form-field>
+
               </div>
 
               <div class="example-container mat-elevation-z8">
@@ -49,9 +59,9 @@
                   </ng-container>
 
                   <ng-container matColumnDef="assignee">
-                      <mat-header-cell *matHeaderCellDef mat-sort-header> Assignee </mat-header-cell>
-                      <mat-cell *matCellDef="let row"> {{row.status}} </mat-cell>
-                    </ng-container>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Assignee </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.status}} </mat-cell>
+                  </ng-container>
 
                   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                   <mat-row *matRowDef="let row; columns: displayedColumns;">

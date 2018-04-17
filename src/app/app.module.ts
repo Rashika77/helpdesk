@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { AppComponent } from './app.component';
@@ -17,37 +17,43 @@ import {
   FacebookLoginProvider,
 } from 'angular5-social-login';
 import { CookieService } from 'ngx-cookie-service';
-import {MessageService} from './services/message.service';
+import { MessageService } from './services/message.service';
 import { NewTicketComponent } from './components/new-ticket/new-ticket.component';
 import { MyTicketsComponent } from './components/my-tickets/my-tickets.component';
 import { AssignedTicketsComponent } from './components/assigned-tickets/assigned-tickets.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {GoogleAuthGuardGuard} from './google-auth-guard.guard'
-import {MatIconModule} from '@angular/material/icon';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { GoogleAuthGuardGuard } from './google-auth-guard.guard'
+import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSortModule} from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { TopBarComponent } from './components/top-bar/top-bar.component';
+import { MatChipsModule } from '@angular/material/chips';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 const appRoutes: Routes = [
   {
+    // root route
     path: '',
     redirectTo: '/login',
     pathMatch: 'full'
   },
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent,
-  canActivateChild : [GoogleAuthGuardGuard],
-  children: [
-    {path: '', redirectTo: 'newticket',pathMatch: 'full'},  
-    {path: 'newticket', component: NewTicketComponent, data:{"title":"New Ticket"}},
-    {path: 'mytickets', component: MyTicketsComponent, data:{"title":"My Tickets"}},
-    {path: 'assignedtickets', component: AssignedTicketsComponent, data:{"title":"Assigned Tickets"}}
-  ] }
+  {
+    path: 'home', component: HomeComponent,
+    canActivateChild: [GoogleAuthGuardGuard],
+    children: [
+      { path: '', redirectTo: 'newticket', pathMatch: 'full' },
+      { path: 'newticket', component: NewTicketComponent, data: { "title": "New Ticket" } },
+      { path: 'mytickets', component: MyTicketsComponent, data: { "title": "My Tickets" } },
+      { path: 'assignedtickets', component: AssignedTicketsComponent, data: { "title": "Assigned Tickets" } }
+    ]
+  }
 
 ];
 
@@ -72,7 +78,8 @@ export function getAuthServiceConfigs() {
     HomeComponent,
     NewTicketComponent,
     MyTicketsComponent,
-    AssignedTicketsComponent
+    AssignedTicketsComponent,
+    TopBarComponent
   ],
   imports: [
     BrowserModule,
@@ -90,12 +97,14 @@ export function getAuthServiceConfigs() {
     ReactiveFormsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatChipsModule,
+    MatTooltipModule
   ],
   providers: [{
     provide: AuthServiceConfig,
     useFactory: getAuthServiceConfigs,
-  },CookieService,MessageService,GoogleAuthGuardGuard],
+  }, CookieService, MessageService, GoogleAuthGuardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

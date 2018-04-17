@@ -18,17 +18,16 @@ export class NewTicketComponent implements OnInit {
     this.route.data.subscribe((data) => {
       this.messageService.emitMessage(data.title);
       this.userData =  JSON.parse(this.cookieService.get('userData'));
-      
-      this.ticket=
-      {
-         id:"1",
-         title:"",
-         requesterUser: this.userData.name,
-         department:"",
-         description:"",
-         contact:""
-       }
     });
+    this.ticket=
+    {
+       id:"1",
+       title:"",
+       requesterUser: this.userData.name,
+       department:"",
+       description:"",
+       contact:""
+     }
   }
 
   clearInputs(){
@@ -41,5 +40,4 @@ export class NewTicketComponent implements OnInit {
       contact:""
     };
   }
-
 }
