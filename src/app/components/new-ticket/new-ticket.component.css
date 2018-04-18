@@ -29,3 +29,10 @@ textarea{
 .box-footer{
   width: 100%
 }
+
+.online{
+  width: 40px;
+    height: 40px;
+    border: 2px solid #00a65a;
+    border-radius: 50px;
+}
