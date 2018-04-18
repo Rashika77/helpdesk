@@ -35,7 +35,6 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { MatChipsModule } from '@angular/material/chips';
 import {MatTooltipModule} from '@angular/material/tooltip';
 
-
 const appRoutes: Routes = [
   {
     // root route
@@ -49,9 +48,9 @@ const appRoutes: Routes = [
     canActivateChild: [GoogleAuthGuardGuard],
     children: [
       { path: '', redirectTo: 'newticket', pathMatch: 'full' },
-      { path: 'newticket', component: NewTicketComponent, data: { "title": "New Ticket" } },
-      { path: 'mytickets', component: MyTicketsComponent, data: { "title": "My Tickets" } },
-      { path: 'assignedtickets', component: AssignedTicketsComponent, data: { "title": "Assigned Tickets" } }
+      { path: 'newticket', component: NewTicketComponent, data: { "data": "New Ticket" } },
+      { path: 'mytickets', component: MyTicketsComponent, data: { "data": "My Tickets" } },
+      { path: 'assignedtickets', component: AssignedTicketsComponent, data: { "data": "Assigned Tickets" } }
     ]
   }
 
@@ -98,9 +97,8 @@ export function getAuthServiceConfigs() {
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatChipsModule,
-    MatTooltipModule
-  ],
+    MatChipsModule
+ ],
   providers: [{
     provide: AuthServiceConfig,
     useFactory: getAuthServiceConfigs,

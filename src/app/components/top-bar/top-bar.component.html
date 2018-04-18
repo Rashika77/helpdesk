@@ -1,6 +1,6 @@
 <mat-chip-list>
-  <mat-chip *ngFor="let ticket of tickets" [selectable]="selectable" [removable]="removable" (remove)="remove(ticket)">
-    {{ticket.id}}
+  <mat-chip *ngFor="let ticket of tickets" [selectable]="selectable" [removable]="removable" (remove)="remove(ticket)" [ngClass]="{'selected': id === ticket.id }" [id]="ticket.id" (click)="addClass(id=ticket.id)">
+  <span class="chip-overflow"> {{ticket.id}}</span> 
     <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
   </mat-chip>
 </mat-chip-list>

@@ -16,7 +16,7 @@ export class NewTicketComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe((data) => {
-      this.messageService.emitMessage(data.title);
+      this.messageService.emitMessage({"type":"sectionName","data":data.title});
       this.userData =  JSON.parse(this.cookieService.get('userData'));
     });
     this.ticket=

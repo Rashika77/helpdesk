@@ -36,7 +36,7 @@ export class MyTicketsComponent implements OnInit {
   }
   ngOnInit() {
     this.route.data.subscribe((data) => {
-      this.messageService.emitMessage(data.title);
+      this.messageService.emitMessage({"type":"sectionName","data":data.title});
     });
   }
   refresh(){

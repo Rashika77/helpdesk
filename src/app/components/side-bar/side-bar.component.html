@@ -16,7 +16,7 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu">
       <li>
-        <a [routerLink]="['/home/newticket']">
+        <a [routerLink]="['/home/newticket']" (click)="addTicket()">
           <i class="fa fa-plus"></i>
           <span>New Ticket</span>
         </a>

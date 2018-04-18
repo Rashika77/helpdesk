@@ -5,6 +5,16 @@
 mat-chip {
     width: 9%;
     text-align: right;
+    margin-bottom: 7px;    
+}
+/* .mat-chip:not(.mat-basic-chip){
+    background-color: #3C8DBC !important;
+    color: white;
+} */
+
+.selected{
+    background-color: #3C8DBC !important;
+    color: white;   
 }
 
 mat-icon{
@@ -13,4 +23,16 @@ mat-icon{
 
 .demo-chip-list{
   width: 100%;
+}
+
+.chip-overflow{
+ min-width: 65px;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ white-space: nowrap; 
+ text-align: left;   
+}
+
+.mat-chip:not(.mat-basic-chip){
+    min-width: 100px;
 }
