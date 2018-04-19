@@ -4,6 +4,10 @@ mat-icon{
     font-family: 'Material Icons' !important;
   }
 
+.mat-grid-tile .mat-figure{
+	display: block !important;
+}
+
 .mat-chip-list-wrapper{
     flex-wrap: nowrap !important;
     overflow-x: auto;

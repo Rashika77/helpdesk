@@ -8,12 +8,14 @@ import { MessageService} from '../../services/message.service'
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  title = null;
+  title = "New Ticket";
   constructor(private messageService: MessageService) {
   }
   ngOnInit() {
-    this.messageService.message.subscribe((title)=>{
-      this.title = title;
+     this.messageService.message.subscribe(messageObject => {
+      if(messageObject.type === "sectionName"){
+        this.title = messageObject.data;
+      }
     });
   }
 

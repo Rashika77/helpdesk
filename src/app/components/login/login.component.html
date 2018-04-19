@@ -1,2 +1,22 @@
-
-<button  (click)="socialSignIn('google')">Signin in with Google</button> 
+<div class="loginDiv">
+  <mat-grid-list rows="2" cols="2" rowHeight="100px">
+    <mat-grid-tile colspan="2" rowspan="1">
+      <div class="main-header">
+        <a href="" class="logo">
+          <span class="logo-lg">
+            <!-- <span>
+              <img class="login-logo" src="../../../assets/img/logo.png" />
+            </span> -->
+            <b>Accolite&nbsp;</b>HelpDesk</span>
+        </a>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1">
+      <div class="main-header">
+        <button class="loginBtn loginBtn--google" (click)="socialSignIn('google')">
+          Login with Google
+        </button>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
