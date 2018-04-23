@@ -49,6 +49,11 @@ export class MyTicketsComponent implements OnInit {
   search(){
     this.showSearch = !this.showSearch;
   }
+
+  onSelect(id){
+    this.router.navigate(['home/viewticket', id]);
+    // this.router.navigate(['/login'], {relativeTo:this.route});
+  }
 }
 
 function createNewTicket (id: number): IticketList {

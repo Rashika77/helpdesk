@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../../services/message.service'
+import { debug } from 'util';
 
 @Component({
   selector: 'app-side-bar',
@@ -7,15 +8,14 @@ import { MessageService } from '../../services/message.service'
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent implements OnInit {
-  private untitledTabCount:number = 1;
-  constructor(private messageService : MessageService) { }
+  private untitledTabCount: number = 1;
+  constructor(private messageService: MessageService) { }
 
   ngOnInit() {
   }
 
-  addTicket(){
-    // this.messageService.emitMessage("Untitled"+this.untitledTabCount++);
-    this.messageService.emitMessage({"type":"newtab", "data":"Untitled "+this.untitledTabCount++});
+  addTicket() {
+    this.messageService.emitMessage({ "type": "newtab", "data": "Untitled " + this.untitledTabCount++ });
   }
 
 }

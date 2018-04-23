@@ -33,7 +33,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { MatChipsModule } from '@angular/material/chips';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { ViewTicketComponent } from './components/view-ticket/view-ticket.component';
 
 const appRoutes: Routes = [
   {
@@ -50,7 +51,8 @@ const appRoutes: Routes = [
       { path: '', redirectTo: 'newticket', pathMatch: 'full' },
       { path: 'newticket', component: NewTicketComponent, data: { "data": "New Ticket" } },
       { path: 'mytickets', component: MyTicketsComponent, data: { "data": "My Tickets" } },
-      { path: 'assignedtickets', component: AssignedTicketsComponent, data: { "data": "Assigned Tickets" } }
+      { path: 'assignedtickets', component: AssignedTicketsComponent, data: { "data": "Assigned Tickets" } },
+      { path: 'viewticket/:id', component: ViewTicketComponent, data: { "data": "View Tickets" }}
     ]
   }
 
@@ -78,7 +80,8 @@ export function getAuthServiceConfigs() {
     NewTicketComponent,
     MyTicketsComponent,
     AssignedTicketsComponent,
-    TopBarComponent
+    TopBarComponent,
+    ViewTicketComponent
   ],
   imports: [
     BrowserModule,
@@ -98,7 +101,7 @@ export function getAuthServiceConfigs() {
     MatPaginatorModule,
     MatSortModule,
     MatChipsModule
- ],
+  ],
   providers: [{
     provide: AuthServiceConfig,
     useFactory: getAuthServiceConfigs,

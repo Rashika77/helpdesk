@@ -29,15 +29,12 @@
               <div class="example-header">
 
               </div>
-
               <div class="example-container mat-elevation-z8">
-
-                <mat-table [dataSource]="dataSource" matSort>
-
+                <mat-table [dataSource]="dataSource" matSort >
                   <!-- ID Column -->
                   <ng-container matColumnDef="id">
                     <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+                    <mat-cell *matCellDef="let row" (click)="onSelect(row.id)"><a>{{row.id}}</a> </mat-cell>
                   </ng-container>
 
                   <!-- Progress Column -->
